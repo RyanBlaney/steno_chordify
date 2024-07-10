@@ -45,7 +45,7 @@ defmodule Combos do
 
     new_combo = """
           c_#{word} {
-            timeout-ms = <0>;
+            timeout-ms = <50>;
             key-positions = <#{key_positions}>;
             bindings = <&m_#{word}>;
             layers = <0>;
