@@ -51,22 +51,25 @@ defmodule Macros do
       bindings =
         word
         |> String.graphemes()
-        |> Enum.map(&"                    <&macro_tap &kp #{&1}>")
-        |> Enum.join(",\n")
+        |> Enum.map(&"&kp #{&1}")
+        |> Enum.join(" ")
 
-      "<&macro_press &kp LSHFT>,\n                    #{bindings},\n                    <&macro_release &kp LSHFT>"
+      "<&macro_press &kp LSHFT>, <&macro_tap #{bindings}>, <&macro_release &kp LSHFT>"
     else
       # Mixed case
-      word
-      |> String.graphemes()
-      |> Enum.map(fn char ->
-        if char == String.upcase(char) do
-          "<&macro_press &kp LSHFT>,\n                    <&macro_tap &kp #{char}>,\n                    <&macro_release &kp LSHFT>"
-        else
-          "<&macro_tap &kp #{String.upcase(char)}>"
-        end
-      end)
-      |> Enum.join(",\n                    ")
+      bindings =
+        word
+        |> String.graphemes()
+        |> Enum.map(fn char ->
+          if char == String.upcase(char) do
+            "&kp LSHFT &kp #{char} &kp LSHFT"
+          else
+            "&kp #{String.upcase(char)}"
+          end
+        end)
+        |> Enum.join(" ")
+
+      "<&macro_tap #{bindings}>"
     end
   end
 

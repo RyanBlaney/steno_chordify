@@ -2,125 +2,12 @@
 
 / {
     steno_macros {
-      m_output: m_output {
+      m_especially: m_especially {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <0>;
         tap-ms = <10>;
-        bindings = <&macro_tap &kp O>,
-                    <&macro_tap &kp U>,
-                    <&macro_tap &kp T>,
-                    <&macro_tap &kp P>,
-                    <&macro_tap &kp U>,
-                    <&macro_tap &kp T>;
-      };
-
-      m_written: m_written {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <0>;
-        tap-ms = <10>;
-        bindings = <&macro_tap &kp W>,
-                    <&macro_tap &kp R>,
-                    <&macro_tap &kp I>,
-                    <&macro_tap &kp T>,
-                    <&macro_tap &kp T>,
-                    <&macro_tap &kp E>,
-                    <&macro_tap &kp N>;
-      };
-
-      m_brown: m_brown {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <0>;
-        tap-ms = <10>;
-        bindings = <&macro_tap &kp B>,
-                    <&macro_tap &kp R>,
-                    <&macro_tap &kp O>,
-                    <&macro_tap &kp W>,
-                    <&macro_tap &kp N>;
-      };
-
-      m_remember: m_remember {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <0>;
-        tap-ms = <10>;
-        bindings = <&macro_tap &kp R>,
-                    <&macro_tap &kp E>,
-                    <&macro_tap &kp M>,
-                    <&macro_tap &kp E>,
-                    <&macro_tap &kp M>,
-                    <&macro_tap &kp B>,
-                    <&macro_tap &kp E>,
-                    <&macro_tap &kp R>;
-      };
-
-      m_tion: m_tion {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <0>;
-        tap-ms = <10>;
-        bindings = <&macro_tap &kp T>,
-                    <&macro_tap &kp I>,
-                    <&macro_tap &kp O>,
-                    <&macro_tap &kp N>;
-      };
-
-      m_condition: m_condition {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <0>;
-        tap-ms = <10>;
-        bindings = <&macro_tap &kp C>,
-                    <&macro_tap &kp O>,
-                    <&macro_tap &kp N>,
-                    <&macro_tap &kp D>,
-                    <&macro_tap &kp I>,
-                    <&macro_tap &kp T>,
-                    <&macro_tap &kp I>,
-                    <&macro_tap &kp O>,
-                    <&macro_tap &kp N>;
-      };
-
-      m_cond: m_cond {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <0>;
-        tap-ms = <10>;
-        bindings = <&macro_tap &kp C>,
-                    <&macro_tap &kp O>,
-                    <&macro_tap &kp N>,
-                    <&macro_tap &kp D>;
-      };
-
-      m_represent: m_represent {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <0>;
-        tap-ms = <10>;
-        bindings = <&macro_tap &kp R>,
-                    <&macro_tap &kp E>,
-                    <&macro_tap &kp P>,
-                    <&macro_tap &kp R>,
-                    <&macro_tap &kp E>,
-                    <&macro_tap &kp S>,
-                    <&macro_tap &kp E>,
-                    <&macro_tap &kp N>,
-                    <&macro_tap &kp T>;
-      };
-
-      m_circle: m_circle {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <0>;
-        tap-ms = <10>;
-        bindings = <&macro_tap &kp C>,
-                    <&macro_tap &kp I>,
-                    <&macro_tap &kp R>,
-                    <&macro_tap &kp C>,
-                    <&macro_tap &kp L>,
-                    <&macro_tap &kp E>;
+        bindings = <&macro_tap &kp E &kp S &kp P &kp E &kp C &kp I &kp A &kp L &kp L &kp Y>;
       };
 
 
@@ -128,66 +15,10 @@
 
     steno_combos {
       compatible = "zmk,combos";
-      c_output {
+      c_especially {
         timeout-ms = <0>;
-        key-positions = <P_O P_U P_T P_P>;
-        bindings = <&m_output>;
-        layers = <0>;
-      };
-
-      c_written {
-        timeout-ms = <0>;
-        key-positions = <P_W P_R P_I P_T P_N>;
-        bindings = <&m_written>;
-        layers = <0>;
-      };
-
-      c_brown {
-        timeout-ms = <0>;
-        key-positions = <P_B P_R P_O P_W P_N>;
-        bindings = <&m_brown>;
-        layers = <0>;
-      };
-
-      c_remember {
-        timeout-ms = <0>;
-        key-positions = <P_R P_M P_B>;
-        bindings = <&m_remember>;
-        layers = <0>;
-      };
-
-      c_tion {
-        timeout-ms = <0>;
-        key-positions = <P_T P_I P_O P_N>;
-        bindings = <&m_tion>;
-        layers = <0>;
-      };
-
-      c_condition {
-        timeout-ms = <0>;
-        key-positions = <P_C P_O P_N P_D P_I>;
-        bindings = <&m_condition>;
-        layers = <0>;
-      };
-
-      c_cond {
-        timeout-ms = <0>;
-        key-positions = <P_C P_O P_N P_D>;
-        bindings = <&m_cond>;
-        layers = <0>;
-      };
-
-      c_represent {
-        timeout-ms = <0>;
-        key-positions = <P_R P_E P_P P_S>;
-        bindings = <&m_represent>;
-        layers = <0>;
-      };
-
-      c_circle {
-        timeout-ms = <0>;
-        key-positions = <P_C P_I P_R P_L P_E>;
-        bindings = <&m_circle>;
+        key-positions = <P_E P_S P_P P_C P_Y>;
+        bindings = <&m_especially>;
         layers = <0>;
       };
 
