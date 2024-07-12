@@ -53,6 +53,7 @@ defmodule Macros do
         |> String.graphemes()
         |> Enum.map(&"&kp #{&1}")
         |> Enum.join(" ")
+        |> check_for_space()
 
       "<&macro_press &kp LSHFT>, <&macro_tap #{bindings}>, <&macro_release &kp LSHFT>"
     else
@@ -61,13 +62,14 @@ defmodule Macros do
         word
         |> String.graphemes()
         |> Enum.map(fn char ->
-          if char == String.upcase(char) do
+          if char == String.upcase(char) && char != "_" do
             "&kp LSHFT &kp #{char} &kp LSHFT"
           else
             "&kp #{String.upcase(char)}"
           end
         end)
         |> Enum.join(" ")
+        |> check_for_space()
 
       "<&macro_tap #{bindings}>"
     end
@@ -87,5 +89,14 @@ defmodule Macros do
       end)
 
     Enum.join(updated_lines, "\n")
+  end
+
+  defp check_for_space(macro) do
+    if String.ends_with?(macro, "_") do
+      macro = String.trim(macro, " &kp _")
+      macro <> " &kp SPACE"
+    else
+      macro
+    end
   end
 end
